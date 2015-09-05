@@ -4,7 +4,7 @@ import requests
 import re
 from contextlib import contextmanager
 from flask import Flask, request
-from sh import cd, git, libreoffice
+from sh import cd, git, soffice
 
 GIT_REMOTE = os.environ['GIT_REMOTE']
 GIT_AUTHOR = os.environ['GIT_AUTHOR']
@@ -43,10 +43,10 @@ def convert_ods_to_fods(ods_path):
     dest_dir = os.path.dirname(ods_path) or '.'
     print (dest_dir)
 
-    libreoffice('--headless',
-                '--convert-to', 'fods',
-                '--outdir', dest_dir,
-                ods_path)
+    soffice('--headless',
+            '--convert-to', 'fods',
+            '--outdir', dest_dir,
+            ods_path)
 
     return os.path.join(dest_dir, dest_filename)
 
