@@ -41,7 +41,6 @@ def convert_ods_to_fods(ods_path):
     ods_filename = os.path.basename(ods_path)
     dest_filename = re.sub('.ods$', '.fods', ods_filename)
     dest_dir = os.path.dirname(ods_path) or '.'
-    print (dest_dir)
 
     soffice('--headless',
             '--convert-to', 'fods',
