@@ -66,9 +66,11 @@ def backup():
         fods_path = convert_ods_to_fods(ods_path)
         os.remove(ods_path)
 
-        git.add(fods_path)
-        git.commit('-m', 'Update spreadsheet.', '--author', GIT_AUTHOR)
-        git.push()
+        # Only commit and push if any files have changed.
+        if git('ls-files', '-m'):
+            git.add(fods_path)
+            git.commit('-m', 'Update spreadsheet.', '--author', GIT_AUTHOR)
+            git.push()
 
     return 'Consider it done!'
 
