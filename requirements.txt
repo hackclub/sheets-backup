@@ -1,0 +1,11 @@
+Flask==0.10.1
+gitdb==0.6.4
+gspread==0.2.5
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+requests==2.7.0
+sh==1.11
+smmap==0.9.0
+Werkzeug==0.10.4
+wheel==0.24.0
