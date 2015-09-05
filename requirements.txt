@@ -1,6 +1,7 @@
 Flask==0.10.1
 gitdb==0.6.4
 gspread==0.2.5
+gunicorn==19.3.0
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
