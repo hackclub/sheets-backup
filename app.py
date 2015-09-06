@@ -7,7 +7,6 @@ from flask import Flask, request
 from sh import cd, git, soffice
 
 GIT_REMOTE = os.environ['GIT_REMOTE']
-GIT_AUTHOR = os.environ['GIT_AUTHOR']
 
 app = Flask(__name__)
 repo = None
@@ -71,7 +70,7 @@ def backup():
         # Only commit and push if any files have changed.
         if git('ls-files', '-m'):
             git.add(fods_path)
-            git.commit('-m', 'Update spreadsheet.', '--author', GIT_AUTHOR)
+            git.commit('-m', 'Update spreadsheet.')
             git.push()
 
     return 'Consider it done!'
