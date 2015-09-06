@@ -61,6 +61,8 @@ def backup():
     spreadsheet_id = request.form['spreadsheet_id']
 
     with cd('repo/'):
+        git.pull()
+
         ods = export_as_ods(access_token, spreadsheet_id)
         ods_path = write_bytes_to_file('clubs.ods', ods)
         fods_path = convert_ods_to_fods(ods_path)
